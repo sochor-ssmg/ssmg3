@@ -15,6 +15,7 @@ public class Physics {
     private static final float maxFallSpeed = 15f;
     private static final float mergeTolerance = 3.0f;
     private static final int collisionPassCount = 6;
+    protected static int defaultFruitSize = 26;
 
     private final ArrayList<Fruit> fruits = new ArrayList<>();
     private final Random random = new Random();
@@ -61,7 +62,7 @@ public class Physics {
     }
 
     private void spawnFruit(int pointerX, int pointerY){
-        int size = nextOrder * 26;
+        int size = nextOrder * defaultFruitSize;
         Image sprite = ResourcesHandler.getFruitImage(nextOrder);
 
         Fruit fruit = new Fruit(
@@ -143,7 +144,7 @@ public class Physics {
         int points = (fruit1.getOrder() + fruit2.getOrder()) * 10;
         score += points;
 
-        int newSize = newOrder * 26;
+        int newSize = newOrder * defaultFruitSize;
         Image newSprite = ResourcesHandler.getFruitImage(newOrder);
 
         int centerX = (fruit1.getCenterX() + fruit2.getCenterX()) / 2;
@@ -292,4 +293,6 @@ public class Physics {
     public int getScore(){
         return score;
     }
+
+
 }

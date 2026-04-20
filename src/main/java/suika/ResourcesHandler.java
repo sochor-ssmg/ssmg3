@@ -83,6 +83,14 @@ public class ResourcesHandler {
             Objects.requireNonNull(ResourcesHandler.class.getResource("/Text/g.png"))
     ).getImage();
 
+    public static final Image Play_Area = new ImageIcon(
+            Objects.requireNonNull(ResourcesHandler.class.getResource("/box.png"))
+    ).getImage();
+
+    public static final Image Pointer_Leg = new ImageIcon(
+            Objects.requireNonNull(ResourcesHandler.class.getResource("/leg.png"))
+    ).getImage();
+
     public static Font loadFont(String path, float size){
         try(InputStream is = ResourcesHandler.class.getResourceAsStream(path)){
             return Font.createFont(Font.TRUETYPE_FONT, is).deriveFont(size);

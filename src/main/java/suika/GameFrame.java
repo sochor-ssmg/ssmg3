@@ -55,14 +55,10 @@ public class GameFrame extends JPanel {
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         g.drawImage(ResourcesHandler.mainmenu, 0, 0, 1400, 1000, null);
-        g.drawRect(
-                physics.getPlayLeft(),
-                physics.getPlayTop(),
-                physics.getPlayRight() - physics.getPlayLeft(),
-                physics.getPlayBottom() - physics.getPlayTop()
-        );
+        g.drawImage(ResourcesHandler.Play_Area, physics.getPlayLeft()-8, physics.getPlayTop(), 666, 809, null);
+        g.drawImage(ResourcesHandler.Pointer_Leg, pointer.getX()-2, physics.getPlayTop()-55, 5, 858, null);
 
-        int nextSize = physics.getNextOrder() * 26;
+        int nextSize = physics.getNextOrder() * Physics.defaultFruitSize;
         Image nextSprite = ResourcesHandler.getFruitImage(physics.getNextOrder());
         g.drawImage(nextSprite, pointer.getX() - nextSize / 2, pointer.getY(), nextSize, nextSize, null);
 
