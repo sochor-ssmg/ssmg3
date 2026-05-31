@@ -56,8 +56,4 @@ public class Input implements MouseMotionListener, MouseListener {
     public int getMouseX(){
         return mouseX;
     }
-
-    public int getMouseY(){
-        return mouseY;
-    }
 }

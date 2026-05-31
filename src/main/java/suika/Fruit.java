@@ -20,7 +20,6 @@ public class Fruit extends Entity {
     public int getCenterX(){
         return getX()+getWidth()/2;
     }
-
     public int getCenterY(){
         return getY()+getHeight()/2;
     }
@@ -33,14 +32,9 @@ public class Fruit extends Entity {
         return sprite;
     }
 
-    public void setSprite(Image sprite){
-        this.sprite=sprite;
-    }
-
     public float getVelocityX(){
         return velocityX;
     }
-
     public void setVelocityX(float velocityX){
         this.velocityX=velocityX;
     }
@@ -48,16 +42,11 @@ public class Fruit extends Entity {
     public float getVelocityY(){
         return velocityY;
     }
-
     public void setVelocityY(float velocityY){
         this.velocityY = velocityY;
     }
 
     public int getOrder(){
         return order;
-    }
-
-    public void setOrder(int order){
-        this.order = order;
     }
 }

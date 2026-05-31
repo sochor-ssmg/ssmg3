@@ -14,7 +14,7 @@ public class Physics {
     private static final float gravity = 0.5f;
     private static final float maxFallSpeed = 15f;
     private static final float mergeTolerance = 3.0f;
-    private static final int collisionPassCount = 6;
+    private static final int collisionPassCount = 100;
     protected static int defaultFruitSize = 26;
 
     private final ArrayList<Fruit> fruits = new ArrayList<>();
@@ -65,14 +65,7 @@ public class Physics {
         int size = nextOrder * defaultFruitSize;
         Image sprite = ResourcesHandler.getFruitImage(nextOrder);
 
-        Fruit fruit = new Fruit(
-                pointerX - size / 2,
-                pointerY,
-                size,
-                size,
-                sprite,
-                nextOrder
-        );
+        Fruit fruit = new Fruit(pointerX - size / 2, pointerY, size, size, sprite, nextOrder);
 
         fruits.add(fruit);
         nextOrder = random.nextInt(5) + 1;
@@ -150,14 +143,7 @@ public class Physics {
         int centerX = (fruit1.getCenterX() + fruit2.getCenterX()) / 2;
         int centerY = (fruit1.getCenterY() + fruit2.getCenterY()) / 2;
 
-        Fruit mergedFruit = new Fruit(
-                centerX - newSize / 2,
-                centerY - newSize / 2,
-                newSize,
-                newSize,
-                newSprite,
-                newOrder
-        );
+        Fruit mergedFruit = new Fruit(centerX - newSize / 2, centerY - newSize / 2, newSize, newSize, newSprite, newOrder);
 
         fruits.remove(index2);
         fruits.remove(index1);
@@ -179,9 +165,7 @@ public class Physics {
         int centerOffsetX = upperFruit.getCenterX() - lowerFruit.getCenterX();
         int centerOffsetY = upperFruit.getCenterY() - lowerFruit.getCenterY();
 
-        double distanceBetweenCenters = Math.sqrt(
-                centerOffsetX * centerOffsetX + centerOffsetY * centerOffsetY
-        );
+        double distanceBetweenCenters = Math.sqrt(centerOffsetX * centerOffsetX + centerOffsetY * centerOffsetY);
         double minimumAllowedDistance = upperFruit.getRadius() + lowerFruit.getRadius();
 
         if(distanceBetweenCenters <= 0.0001){
@@ -270,16 +254,8 @@ public class Physics {
         return PLAY_LEFT;
     }
 
-    public int getPlayRight(){
-        return PLAY_RIGHT;
-    }
-
     public int getPlayTop(){
         return PLAY_TOP;
-    }
-
-    public int getPlayBottom(){
-        return PLAY_BOTTOM;
     }
 
     public int getNextOrder(){

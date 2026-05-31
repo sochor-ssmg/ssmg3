@@ -15,7 +15,7 @@ public class Game extends JFrame {
     private MenuPanel menuPanel;
 
     public Game(){
-        setTitle("sesamega");
+         setTitle("sesamega");
         setResizable(false);
         setSize(1400, 1000);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
